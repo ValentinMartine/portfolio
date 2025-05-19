@@ -174,18 +174,17 @@
       Array.from(document.querySelectorAll('#reponses button')).forEach(btn => btn.disabled = true);
 
       const bonne = q.reponses[idx].correct;
-      let explication = q.explication;
+      const bonneRep = q.reponses.find(r => r.correct);
 
       if (bonne) {
-        document.getElementById('reponse').textContent = "";
+        document.getElementById('reponse').textContent = `Bonne réponse. La bonne réponse est : "${q.reponses[idx].text}".`;
+        document.getElementById('reponse').style.color = "green";
         score++;
       } else {
-        // Cherche la bonne réponse pour l'afficher
-        const bonneRep = q.reponses.find(r => r.correct);
         document.getElementById('reponse').textContent = `Mauvaise réponse. La bonne réponse était : "${bonneRep.text}".`;
         document.getElementById('reponse').style.color = "red";
       }
-      document.getElementById('explication').textContent = explication;
+      document.getElementById('explication').textContent = q.explication;
       document.getElementById('next-btn').style.display = "inline-block";
     }
 
