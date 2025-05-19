@@ -9,12 +9,10 @@
   </style>
 </head>
 <body>
-  <!-- Introduction -->
-  <section id="intro-section">
-    <h2>Quiz sur les Médicaments</h2>
-    <p>Bienvenue sur le quiz santé ! Testez vos connaissances sur les médicaments.</p>
+  <!-- Un seul bouton visible au départ -->
+  <div id="start-section">
     <button onclick="demarrerQuiz()">Commencer le quiz</button>
-  </section>
+  </div>
 
   <!-- Quiz -->
   <section id="quiz-section">
@@ -25,12 +23,12 @@
       <li><button>Paracétamol</button></li>
       <li><button>Aspirine</button></li>
     </ul>
-    <!-- Ajoute ici les autres questions et la logique du quiz -->
+    <!-- Ajoute ici les autres questions ou la logique du quiz -->
   </section>
 
   <script>
     function demarrerQuiz() {
-      document.getElementById('intro-section').style.display = 'none';
+      document.getElementById('start-section').style.display = 'none';
       document.getElementById('quiz-section').style.display = 'block';
     }
   </script>
