@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <style>
     #quiz-section { display: none; }
+    #reponse { margin-top: 20px; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -17,19 +18,30 @@
   <!-- Quiz -->
   <section id="quiz-section">
     <h3>Question 1</h3>
-    <p>Quel est le principe actif du Doliprane ?</p>
+    <p>Quel est le principe actif du Doliprane&nbsp;?</p>
     <ul>
-      <li><button>Ibuprofène</button></li>
-      <li><button>Paracétamol</button></li>
-      <li><button>Aspirine</button></li>
+      <li><button onclick="repondre(false)">Ibuprofène</button></li>
+      <li><button onclick="repondre(true)">Paracétamol</button></li>
+      <li><button onclick="repondre(false)">Aspirine</button></li>
     </ul>
-    <!-- Ajoute ici les autres questions ou la logique du quiz -->
+    <div id="reponse"></div>
   </section>
 
   <script>
     function demarrerQuiz() {
       document.getElementById('start-section').style.display = 'none';
       document.getElementById('quiz-section').style.display = 'block';
+    }
+
+    function repondre(estBonneReponse) {
+      const reponseDiv = document.getElementById('reponse');
+      if (estBonneReponse) {
+        reponseDiv.textContent = "Bonne réponse ! 🎉";
+        reponseDiv.style.color = "green";
+      } else {
+        reponseDiv.textContent = "Mauvaise réponse. 😢";
+        reponseDiv.style.color = "red";
+      }
     }
   </script>
 </body>
