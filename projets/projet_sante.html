@@ -4,11 +4,35 @@
   <meta charset="UTF-8">
   <title>Projet Santé</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #quiz-section { display: none; }
+  </style>
 </head>
 <body>
-  <h2>Quiz sur les Médicaments</h2>
-  <p>Bienvenue sur le quiz santé ! Testez vos connaissances sur les médicaments.</p>
-  <!-- Ici, ajoute ton quiz ou le contenu souhaité -->
-  <a href="projet_sante_quiz.html" class="btn">Commencer le quiz</a>
+  <!-- Introduction -->
+  <section id="intro-section">
+    <h2>Quiz sur les Médicaments</h2>
+    <p>Bienvenue sur le quiz santé ! Testez vos connaissances sur les médicaments.</p>
+    <button onclick="demarrerQuiz()">Commencer le quiz</button>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz-section">
+    <h3>Question 1</h3>
+    <p>Quel est le principe actif du Doliprane ?</p>
+    <ul>
+      <li><button>Ibuprofène</button></li>
+      <li><button>Paracétamol</button></li>
+      <li><button>Aspirine</button></li>
+    </ul>
+    <!-- Ajoute ici les autres questions et la logique du quiz -->
+  </section>
+
+  <script>
+    function demarrerQuiz() {
+      document.getElementById('intro-section').style.display = 'none';
+      document.getElementById('quiz-section').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
