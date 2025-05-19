@@ -1,17 +1,47 @@
-/* ---- GÉNÉRAL ---- */
-body {
-  background: #f7f7f7;
-  color: #222;
-  font-family: 'Inter', 'Roboto', Arial, sans-serif;
-  margin: 0;
+/* ---- SIDEBAR ---- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 100vh;
+  background: #e3e6ea;
+  border-right: 1px solid #d1d5db;
+  z-index: 100;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar ul {
+  list-style: none;
   padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sidebar li {
+  width: 100%;
+}
+.sidebar a {
+  display: block;
+  padding: 15px 0 15px 28px;
+  color: #22577a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15em;
+  border-radius: 6px 0 0 6px;
+  transition: background 0.18s, color 0.18s;
+}
+.sidebar a:hover, .sidebar a:focus {
+  background: #22577a;
+  color: #fff;
 }
 
-/* Centrage et largeur raisonnable du contenu principal */
+/* ---- MAIN CONTAINER ---- */
 .main-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px 0 56px; /* grande marge à gauche */
+  margin-left: 210px;
+  padding: 0 40px;
+  max-width: 1200px;
 }
 
 /* ---- SECTIONS ---- */
@@ -25,7 +55,6 @@ section {
   position: relative;
 }
 
-/* Espacement entre les sections */
 section + section {
   margin-top: 72px;
 }
@@ -37,11 +66,10 @@ h1, h2, h3 {
   margin-bottom: 24px;
   margin-top: 0;
 }
-
 h1 {
-  text-align: center;
   font-size: 2.4em;
   letter-spacing: -1px;
+  text-align: center;
 }
 h2 {
   font-size: 1.5em;
@@ -49,6 +77,20 @@ h2 {
 }
 h3 {
   font-size: 1.2em;
+}
+
+/* ---- EXPERIENCE ---- */
+.experience {
+  margin-bottom: 32px;
+}
+.experience .poste {
+  font-weight: bold;
+}
+.experience .lieu-date {
+  margin-left: 12px;
+  color: #555;
+  font-size: 0.98em;
+  margin-bottom: 18px;
 }
 
 /* ---- PARAGRAPHES & LISTES ---- */
@@ -92,34 +134,6 @@ a:hover, a:focus {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* ---- NAVIGATION ---- */
-nav {
-  background: #e3e6ea;
-  border-bottom: 1px solid #d1d5db;
-  padding: 18px 0;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 36px;
-  margin: 0;
-  padding: 0;
-}
-nav a {
-  color: #22577a;
-  font-weight: 500;
-  font-size: 1.1em;
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background 0.18s, color 0.18s;
-}
-nav a:hover, nav a:focus {
-  color: #fff;
-  background: #22577a;
-}
-
 /* ---- CARTES ---- */
 .card {
   background: #f7f7f7;
@@ -153,15 +167,153 @@ footer {
   border-top: 1px solid #d1d5db;
 }
 
+/* ---- QUIZ SPÉCIFIQUE ---- */
+#quiz-section, #result-section, #start-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+  background: transparent;
+}
+#start-section button {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 2em;
+  padding: 30px 70px;
+  border-radius: 16px;
+  background: #22577a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: block;
+}
+#start-section button:hover {
+  background: #183654;
+  transform: scale(1.06);
+}
+#quiz-section h3#question {
+  font-size: 2.2em;
+  font-weight: bold;
+  margin: 40px 0 50px 0;
+  text-align: center;
+  max-width: 90vw;
+}
+#reponses {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+#reponses button {
+  font-size: 1.3em;
+  padding: 22px 44px;
+  min-width: 320px;
+  border: none;
+  border-radius: 12px;
+  background: #22577a;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 24px #22577a22;
+  text-align: center;
+}
+#reponses button:hover:enabled {
+  background: #183654;
+  transform: scale(1.04);
+}
+#reponse, .explication, #next-btn, #fin-btn {
+  text-align: center;
+  align-self: center;
+}
+#reponse {
+  margin-top: 30px;
+  font-size: 1.2em;
+}
+.explication {
+  margin-top: 20px;
+  font-size: 1.1em;
+  max-width: 750px;
+  text-align: center;
+}
+#next-btn, #fin-btn {
+  margin-top: 40px;
+  font-size: 1.1em;
+  padding: 16px 40px;
+  border-radius: 10px;
+  background: #22577a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: block;
+  text-align: center;
+  align-self: center;
+}
+#next-btn:hover:enabled, #fin-btn:hover:enabled {
+  background: #183654;
+  transform: scale(1.04);
+}
+#score {
+  font-size: 2em;
+  margin-top: 30px;
+  text-align: center;
+}
+#result-section button {
+  margin-top: 44px;
+  font-size: 1em;
+  padding: 16px 44px;
+  border-radius: 10px;
+  background: #22577a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: block;
+  text-align: center;
+  align-self: center;
+}
+#result-section button:hover {
+  background: #183654;
+  transform: scale(1.04);
+}
+
 /* ---- RESPONSIVE ---- */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .main-container {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
-  section {
-    padding: 22px 10px 20px 10px;
-    margin: 32px 0;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    padding-top: 0;
+    border-right: none;
+    border-bottom: 1px solid #d1d5db;
+  }
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .sidebar a {
+    padding: 12px 10px;
+    border-radius: 0;
+    font-size: 1em;
+  }
+  .main-container {
+    margin-left: 0;
+    padding: 0 6px;
   }
 }
 @media (max-width: 600px) {
@@ -169,10 +321,6 @@ footer {
     padding: 12px 0;
     margin: 22px 0;
     border-radius: 8px;
-  }
-  .main-container {
-    padding-left: 4px;
-    padding-right: 4px;
   }
   h1 {
     font-size: 1.3em;
