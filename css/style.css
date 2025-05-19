@@ -1,47 +1,78 @@
-/* ---- SIDEBAR ---- */
-.sidebar {
+/* ---- TABLE DES MATIÈRES HORIZONTALE FIXE ---- */
+.toc-bar {
   position: fixed;
-  left: 0;
   top: 0;
-  width: 210px;
-  height: 100vh;
-  background: #e3e6ea;
-  border-right: 1px solid #d1d5db;
-  z-index: 100;
-  padding-top: 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-.sidebar li {
-  width: 100%;
-}
-.sidebar a {
-  display: block;
-  padding: 15px 0 15px 28px;
-  color: #22577a;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.15em;
-  border-radius: 6px 0 0 6px;
-  transition: background 0.18s, color 0.18s;
-}
-.sidebar a:hover, .sidebar a:focus {
+  left: 0;
+  width: 100vw;
   background: #22577a;
+  z-index: 200;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px #0002;
+}
+.toc-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 30px;
+  display: flex;
+  gap: 38px;
+  width: 100%;
+  justify-content: center;
+}
+.toc-bar li {
+  display: flex;
+}
+.toc-bar a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.25em;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+.toc-bar a:hover, .toc-bar a:focus {
+  background: #183654;
   color: #fff;
 }
 
-/* ---- MAIN CONTAINER ---- */
+/* Pour éviter que le contenu soit caché sous la barre */
 .main-container {
-  margin-left: 210px;
-  padding: 0 40px;
+  margin-top: 80px;
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+/* ---- GROS TITRES ET POLICE ---- */
+body {
+  background: #f7f7f7;
+  color: #222;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  font-size: 1.25em;
+}
+h1, h2, h3 {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  color: #22577a;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+h1 {
+  font-size: 2.8em;
+  text-align: center;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 1.4em;
 }
 
 /* ---- SECTIONS ---- */
@@ -54,49 +85,29 @@ section {
   border: 1px solid #e3e6ea;
   position: relative;
 }
-
 section + section {
   margin-top: 72px;
 }
 
-/* ---- TITRES ---- */
-h1, h2, h3 {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
-  color: #22577a;
-  margin-bottom: 24px;
-  margin-top: 0;
-}
-h1 {
-  font-size: 2.4em;
-  letter-spacing: -1px;
-  text-align: center;
-}
-h2 {
-  font-size: 1.5em;
-  margin-top: 20px;
-}
-h3 {
-  font-size: 1.2em;
-}
-
-/* ---- EXPERIENCE ---- */
+/* ---- EXPÉRIENCE ---- */
 .experience {
   margin-bottom: 32px;
 }
 .experience .poste {
   font-weight: bold;
+  font-size: 1.08em;
 }
 .experience .lieu-date {
   margin-left: 12px;
   color: #555;
-  font-size: 0.98em;
+  font-size: 1em;
   margin-bottom: 18px;
 }
 
 /* ---- PARAGRAPHES & LISTES ---- */
 p, li {
-  font-size: 1.12em;
-  margin-bottom: 14px;
+  font-size: 1.13em;
+  margin-bottom: 16px;
   line-height: 1.7;
 }
 
@@ -120,51 +131,19 @@ a:hover, a:focus {
   background: #22577a;
   color: #fff !important;
   border-radius: 8px;
-  padding: 12px 32px;
+  padding: 14px 36px;
   text-decoration: none;
   font-weight: 500;
   margin: 22px 12px 0 0;
   transition: background 0.2s, transform 0.1s;
   border: none;
+  font-size: 1.05em;
 }
 .btn-link:hover, .btn-link:focus {
   background: #183654;
   color: #fff;
   text-decoration: none;
   transform: translateY(-2px) scale(1.03);
-}
-
-/* ---- CARTES ---- */
-.card {
-  background: #f7f7f7;
-  border: 1px solid #e3e6ea;
-  border-radius: 10px;
-  padding: 24px 22px;
-  margin-bottom: 32px;
-  box-shadow: 0 1px 6px #0001;
-  transition: box-shadow 0.2s;
-}
-.card:hover {
-  box-shadow: 0 4px 24px #22577a22;
-}
-
-/* ---- IMAGES ---- */
-img, .project-img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  box-shadow: 0 1px 6px #0001;
-}
-
-/* ---- FOOTER ---- */
-footer {
-  margin-top: 56px;
-  padding: 28px 0;
-  background: #e3e6ea;
-  text-align: center;
-  color: #555;
-  font-size: 1em;
-  border-top: 1px solid #d1d5db;
 }
 
 /* ---- QUIZ SPÉCIFIQUE ---- */
@@ -195,7 +174,7 @@ footer {
   transform: scale(1.06);
 }
 #quiz-section h3#question {
-  font-size: 2.2em;
+  font-size: 2em;
   font-weight: bold;
   margin: 40px 0 50px 0;
   text-align: center;
@@ -212,7 +191,7 @@ footer {
   gap: 32px;
 }
 #reponses button {
-  font-size: 1.3em;
+  font-size: 1.18em;
   padding: 22px 44px;
   min-width: 320px;
   border: none;
@@ -234,17 +213,17 @@ footer {
 }
 #reponse {
   margin-top: 30px;
-  font-size: 1.2em;
+  font-size: 1.08em;
 }
 .explication {
   margin-top: 20px;
-  font-size: 1.1em;
+  font-size: 1em;
   max-width: 750px;
   text-align: center;
 }
 #next-btn, #fin-btn {
   margin-top: 40px;
-  font-size: 1.1em;
+  font-size: 1.03em;
   padding: 16px 40px;
   border-radius: 10px;
   background: #22577a;
@@ -261,7 +240,7 @@ footer {
   transform: scale(1.04);
 }
 #score {
-  font-size: 2em;
+  font-size: 1.8em;
   margin-top: 30px;
   text-align: center;
 }
@@ -285,35 +264,18 @@ footer {
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 1000px) {
-  .main-container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
 @media (max-width: 900px) {
-  .sidebar {
-    position: static;
-    width: 100vw;
-    height: auto;
-    flex-direction: row;
-    padding-top: 0;
-    border-right: none;
-    border-bottom: 1px solid #d1d5db;
-  }
-  .sidebar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .sidebar a {
-    padding: 12px 10px;
-    border-radius: 0;
-    font-size: 1em;
-  }
   .main-container {
-    margin-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .toc-bar ul {
+    gap: 10px;
     padding: 0 6px;
+  }
+  .toc-bar a {
+    font-size: 1.03em;
+    padding: 8px 7px;
   }
 }
 @media (max-width: 600px) {
@@ -323,9 +285,17 @@ footer {
     border-radius: 8px;
   }
   h1 {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
   h2 {
     font-size: 1.1em;
+  }
+  .toc-bar {
+    height: 52px;
+    font-size: 0.93em;
+  }
+  .main-container {
+    margin-top: 62px;
+    padding: 0 4px;
   }
 }
