@@ -5,8 +5,11 @@
   <title>Projet Santé</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    #quiz-section { display: none; }
+    #quiz-section, #result-section { display: none; }
     #reponse { margin-top: 20px; font-weight: bold; }
+    .explication { margin-top: 10px; }
+    #next-btn { margin-top: 20px; }
+    #score { font-size: 1.2em; margin-top: 30px; }
   </style>
 </head>
 <body>
@@ -17,31 +20,115 @@
 
   <!-- Quiz -->
   <section id="quiz-section">
-    <h3>Question 1</h3>
-    <p>Quel est le principe actif du Doliprane&nbsp;?</p>
-    <ul>
-      <li><button onclick="repondre(false)">Ibuprofène</button></li>
-      <li><button onclick="repondre(true)">Paracétamol</button></li>
-      <li><button onclick="repondre(false)">Aspirine</button></li>
-    </ul>
+    <h3 id="question"></h3>
+    <ul id="reponses"></ul>
     <div id="reponse"></div>
+    <div class="explication" id="explication"></div>
+    <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+  </section>
+
+  <!-- Résultat final -->
+  <section id="result-section">
+    <div id="score"></div>
+    <button onclick="restartQuiz()">Recommencer le quiz</button>
   </section>
 
   <script>
+    // Liste des questions du quiz
+    const questions = [
+      {
+        question: "Quel est le principe actif du Doliprane ?",
+        reponses: [
+          { text: "Ibuprofène", correct: false, explication: "L'ibuprofène est le principe actif de l'Advil ou du Nurofen." },
+          { text: "Paracétamol", correct: true, explication: "Bonne réponse ! Le principe actif du Doliprane est le paracétamol." },
+          { text: "Aspirine", correct: false, explication: "L'aspirine est un autre antalgique, mais ce n’est pas celui du Doliprane." }
+        ]
+      },
+      {
+        question: "L'aspirine appartient à la classe des :",
+        reponses: [
+          { text: "Antibiotiques", correct: false, explication: "Non, l'aspirine n'est pas un antibiotique." },
+          { text: "Anti-inflammatoires non stéroïdiens (AINS)", correct: true, explication: "Bonne réponse ! L'aspirine est un AINS." },
+          { text: "Antiviraux", correct: false, explication: "Non, l'aspirine n'est pas un antiviral." }
+        ]
+      },
+      {
+        question: "Le paracétamol est principalement utilisé pour :",
+        reponses: [
+          { text: "Réduire la fièvre et soulager la douleur", correct: true, explication: "Bonne réponse ! Le paracétamol est un antalgique et antipyrétique." },
+          { text: "Soigner une infection bactérienne", correct: false, explication: "Non, le paracétamol ne traite pas les infections bactériennes." },
+          { text: "Traiter les allergies", correct: false, explication: "Non, le paracétamol n'est pas un antiallergique." }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
     function demarrerQuiz() {
       document.getElementById('start-section').style.display = 'none';
+      document.getElementById('result-section').style.display = 'none';
       document.getElementById('quiz-section').style.display = 'block';
+      currentQuestion = 0;
+      score = 0;
+      afficherQuestion();
     }
 
-    function repondre(estBonneReponse) {
-      const reponseDiv = document.getElementById('reponse');
-      if (estBonneReponse) {
-        reponseDiv.textContent = "Bonne réponse ! 🎉";
-        reponseDiv.style.color = "green";
+    function afficherQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById('question').textContent = q.question;
+      const ul = document.getElementById('reponses');
+      ul.innerHTML = "";
+      q.reponses.forEach((rep, idx) => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.textContent = rep.text;
+        btn.onclick = () => repondre(idx);
+        btn.disabled = false;
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+      document.getElementById('reponse').textContent = "";
+      document.getElementById('explication').textContent = "";
+      document.getElementById('next-btn').style.display = "none";
+    }
+
+    function repondre(idx) {
+      const q = questions[currentQuestion];
+      // Désactive tous les boutons
+      Array.from(document.querySelectorAll('#reponses button')).forEach(btn => btn.disabled = true);
+
+      const bonne = q.reponses[idx].correct;
+      if (bonne) {
+        document.getElementById('reponse').textContent = "Bonne réponse ! 🎉";
+        document.getElementById('reponse').style.color = "green";
+        score++;
       } else {
-        reponseDiv.textContent = "Mauvaise réponse. 😢";
-        reponseDiv.style.color = "red";
+        document.getElementById('reponse').textContent = "Mauvaise réponse. 😢";
+        document.getElementById('reponse').style.color = "red";
       }
+      document.getElementById('explication').textContent = q.reponses[idx].explication;
+      document.getElementById('next-btn').style.display = "inline-block";
+    }
+
+    function questionSuivante() {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        afficherQuestion();
+      } else {
+        afficherScore();
+      }
+    }
+
+    function afficherScore() {
+      document.getElementById('quiz-section').style.display = 'none';
+      document.getElementById('result-section').style.display = 'block';
+      document.getElementById('score').innerHTML =
+        "Votre score : <strong>" + score + " / " + questions.length + "</strong>";
+    }
+
+    function restartQuiz() {
+      demarrerQuiz();
     }
   </script>
 </body>
