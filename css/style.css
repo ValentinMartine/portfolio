@@ -1,59 +1,182 @@
-/* Centrage général pour le quiz */
-#quiz-section, #result-section, #start-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* ---- GÉNÉRAL ---- */
+body {
+  background: #f7f7f7;
+  color: #222;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-#reponse,
-.explication,
-#next-btn,
-#fin-btn {
-  text-align: center;
-  align-self: center;
+/* Centrage et largeur raisonnable du contenu principal */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 0 56px; /* grande marge à gauche */
 }
 
-.explication {
+/* ---- SECTIONS ---- */
+section {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0001;
+  padding: 44px 38px 38px 38px;
+  margin: 56px 0;
+  border: 1px solid #e3e6ea;
+  position: relative;
+}
+
+/* Espacement entre les sections */
+section + section {
+  margin-top: 72px;
+}
+
+/* ---- TITRES ---- */
+h1, h2, h3 {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  color: #22577a;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.4em;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 1.5em;
   margin-top: 20px;
+}
+h3 {
   font-size: 1.2em;
-  max-width: 750px;
-  text-align: center;
 }
 
-#next-btn, #fin-btn {
-  margin-top: 40px;
-  font-size: 1.3em;
-  padding: 18px 48px;
+/* ---- PARAGRAPHES & LISTES ---- */
+p, li {
+  font-size: 1.12em;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+/* ---- LIENS ---- */
+a {
+  color: #22577a;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border-radius: 4px;
+  padding: 1px 2px;
+  transition: color 0.18s, background 0.18s;
+}
+a:hover, a:focus {
+  color: #183654;
+  background: #e3e6ea;
+  text-decoration: underline;
+}
+.btn-link {
+  display: inline-block;
+  background: #22577a;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 12px 32px;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 22px 12px 0 0;
+  transition: background 0.2s, transform 0.1s;
+  border: none;
+}
+.btn-link:hover, .btn-link:focus {
+  background: #183654;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* ---- NAVIGATION ---- */
+nav {
+  background: #e3e6ea;
+  border-bottom: 1px solid #d1d5db;
+  padding: 18px 0;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: #22577a;
+  font-weight: 500;
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+nav a:hover, nav a:focus {
+  color: #fff;
+  background: #22577a;
+}
+
+/* ---- CARTES ---- */
+.card {
+  background: #f7f7f7;
+  border: 1px solid #e3e6ea;
   border-radius: 10px;
-  background: #22577a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: block;
+  padding: 24px 22px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 6px #0001;
+  transition: box-shadow 0.2s;
 }
-#next-btn:hover:enabled,
-#fin-btn:hover:enabled {
-  background: #183654;
-  transform: scale(1.04);
+.card:hover {
+  box-shadow: 0 4px 24px #22577a22;
 }
 
-/* Gros bouton pour commencer le quiz */
-#start-section button {
-  margin-top: 60px;
-  margin-bottom: 40px;
-  font-size: 2em;
-  padding: 30px 70px;
-  border-radius: 16px;
-  background: #22577a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: block;
+/* ---- IMAGES ---- */
+img, .project-img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 6px #0001;
 }
-#start-section button:hover {
-  background: #183654;
-  transform: scale(1.06);
+
+/* ---- FOOTER ---- */
+footer {
+  margin-top: 56px;
+  padding: 28px 0;
+  background: #e3e6ea;
+  text-align: center;
+  color: #555;
+  font-size: 1em;
+  border-top: 1px solid #d1d5db;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .main-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  section {
+    padding: 22px 10px 20px 10px;
+    margin: 32px 0;
+  }
+}
+@media (max-width: 600px) {
+  section {
+    padding: 12px 0;
+    margin: 22px 0;
+    border-radius: 8px;
+  }
+  .main-container {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  h1 {
+    font-size: 1.3em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
 }
