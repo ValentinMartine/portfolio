@@ -1,0 +1,70 @@
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Corps général */
+body {
+  line-height: 1.6;
+  padding: 20px;
+  background: white;
+}
+
+/* En-tête et pied de page */
+header, footer {
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+}
+
+/* Menu de navigation */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Sections principales */
+section {
+  margin-top: 40px;
+}
+
+h2 {
+  color: #2c3e50;
+}
+
+/* Formulaire */
+form input, form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 15px;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
