@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Projet Santé</title>
+  <title>Quiz Médicaments</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     #quiz-section, #result-section { display: none; }
@@ -13,12 +13,10 @@
   </style>
 </head>
 <body>
-  <!-- Un seul bouton visible au départ -->
   <div id="start-section">
     <button onclick="demarrerQuiz()">Commencer le quiz</button>
   </div>
 
-  <!-- Quiz -->
   <section id="quiz-section">
     <h3 id="question"></h3>
     <ul id="reponses"></ul>
@@ -27,55 +25,132 @@
     <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
   </section>
 
-  <!-- Résultat final -->
   <section id="result-section">
     <div id="score"></div>
-    <button onclick="restartQuiz()">Recommencer le quiz</button>
+    <button onclick="demarrerQuiz()">Recommencer le quiz</button>
   </section>
 
   <script>
-    // Liste des questions du quiz
+    // 10 questions avec explications
     const questions = [
       {
         question: "Quel est le principe actif du Doliprane ?",
         reponses: [
-          { text: "Ibuprofène", correct: false, explication: "L'ibuprofène est le principe actif de l'Advil ou du Nurofen." },
-          { text: "Paracétamol", correct: true, explication: "Bonne réponse ! Le principe actif du Doliprane est le paracétamol." },
-          { text: "Aspirine", correct: false, explication: "L'aspirine est un autre antalgique, mais ce n’est pas celui du Doliprane." }
-        ]
+          { text: "Ibuprofène", correct: false },
+          { text: "Paracétamol", correct: true },
+          { text: "Aspirine", correct: false }
+        ],
+        explication: "Le principe actif du Doliprane est le paracétamol, utilisé comme antalgique et antipyrétique."
       },
       {
         question: "L'aspirine appartient à la classe des :",
         reponses: [
-          { text: "Antibiotiques", correct: false, explication: "Non, l'aspirine n'est pas un antibiotique." },
-          { text: "Anti-inflammatoires non stéroïdiens (AINS)", correct: true, explication: "Bonne réponse ! L'aspirine est un AINS." },
-          { text: "Antiviraux", correct: false, explication: "Non, l'aspirine n'est pas un antiviral." }
-        ]
+          { text: "Antibiotiques", correct: false },
+          { text: "Anti-inflammatoires non stéroïdiens (AINS)", correct: true },
+          { text: "Antiviraux", correct: false }
+        ],
+        explication: "L'aspirine est un AINS, c'est-à-dire un anti-inflammatoire non stéroïdien."
       },
       {
         question: "Le paracétamol est principalement utilisé pour :",
         reponses: [
-          { text: "Réduire la fièvre et soulager la douleur", correct: true, explication: "Bonne réponse ! Le paracétamol est un antalgique et antipyrétique." },
-          { text: "Soigner une infection bactérienne", correct: false, explication: "Non, le paracétamol ne traite pas les infections bactériennes." },
-          { text: "Traiter les allergies", correct: false, explication: "Non, le paracétamol n'est pas un antiallergique." }
-        ]
+          { text: "Réduire la fièvre et soulager la douleur", correct: true },
+          { text: "Soigner une infection bactérienne", correct: false },
+          { text: "Traiter les allergies", correct: false }
+        ],
+        explication: "Le paracétamol sert à réduire la fièvre et soulager la douleur."
+      },
+      {
+        question: "Quel médicament est le plus adapté pour une inflammation ?",
+        reponses: [
+          { text: "Paracétamol", correct: false },
+          { text: "Ibuprofène", correct: true },
+          { text: "Paracétamol codéiné", correct: false }
+        ],
+        explication: "L'ibuprofène est un anti-inflammatoire, adapté pour traiter une inflammation."
+      },
+      {
+        question: "L'antidote du paracétamol en cas de surdosage est :",
+        reponses: [
+          { text: "N-acétylcystéine", correct: true },
+          { text: "Charbon actif", correct: false },
+          { text: "Naloxone", correct: false }
+        ],
+        explication: "La N-acétylcystéine est l'antidote spécifique en cas de surdosage au paracétamol."
+      },
+      {
+        question: "Quel médicament n’est PAS un antalgique ?",
+        reponses: [
+          { text: "Paracétamol", correct: false },
+          { text: "Ibuprofène", correct: false },
+          { text: "Amoxicilline", correct: true }
+        ],
+        explication: "L'amoxicilline est un antibiotique, pas un antalgique."
+      },
+      {
+        question: "Quel effet secondaire est le plus fréquent avec les AINS ?",
+        reponses: [
+          { text: "Nausées", correct: false },
+          { text: "Ulcères gastriques", correct: true },
+          { text: "Somnolence", correct: false }
+        ],
+        explication: "Les AINS, comme l'ibuprofène, peuvent provoquer des ulcères gastriques."
+      },
+      {
+        question: "On ne doit pas associer l’aspirine à :",
+        reponses: [
+          { text: "Du lait", correct: false },
+          { text: "Un autre AINS", correct: true },
+          { text: "Du paracétamol", correct: false }
+        ],
+        explication: "L'aspirine ne doit pas être associée à un autre AINS à cause du risque de saignements."
+      },
+      {
+        question: "Le paracétamol est à éviter chez :",
+        reponses: [
+          { text: "Les personnes allergiques au gluten", correct: false },
+          { text: "Les insuffisants hépatiques graves", correct: true },
+          { text: "Les diabétiques", correct: false }
+        ],
+        explication: "Le paracétamol est contre-indiqué chez les personnes souffrant d’insuffisance hépatique grave."
+      },
+      {
+        question: "Quel médicament est utilisé pour traiter une infection bactérienne ?",
+        reponses: [
+          { text: "Ibuprofène", correct: false },
+          { text: "Amoxicilline", correct: true },
+          { text: "Aspirine", correct: false }
+        ],
+        explication: "L’amoxicilline est un antibiotique efficace contre les infections bactériennes."
       }
     ];
 
+    let questionsTirage = [];
     let currentQuestion = 0;
     let score = 0;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
     function demarrerQuiz() {
       document.getElementById('start-section').style.display = 'none';
       document.getElementById('result-section').style.display = 'none';
       document.getElementById('quiz-section').style.display = 'block';
-      currentQuestion = 0;
       score = 0;
+      currentQuestion = 0;
+      // Tirer 3 questions au hasard
+      questionsTirage = questions.slice();
+      shuffle(questionsTirage);
+      questionsTirage = questionsTirage.slice(0, 3);
       afficherQuestion();
     }
 
     function afficherQuestion() {
-      const q = questions[currentQuestion];
+      const q = questionsTirage[currentQuestion];
       document.getElementById('question').textContent = q.question;
       const ul = document.getElementById('reponses');
       ul.innerHTML = "";
@@ -94,26 +169,29 @@
     }
 
     function repondre(idx) {
-      const q = questions[currentQuestion];
+      const q = questionsTirage[currentQuestion];
       // Désactive tous les boutons
       Array.from(document.querySelectorAll('#reponses button')).forEach(btn => btn.disabled = true);
 
       const bonne = q.reponses[idx].correct;
+      let explication = q.explication;
+
       if (bonne) {
-        document.getElementById('reponse').textContent = "Bonne réponse ! 🎉";
-        document.getElementById('reponse').style.color = "green";
+        document.getElementById('reponse').textContent = "";
         score++;
       } else {
-        document.getElementById('reponse').textContent = "Mauvaise réponse. 😢";
+        // Cherche la bonne réponse pour l'afficher
+        const bonneRep = q.reponses.find(r => r.correct);
+        document.getElementById('reponse').textContent = `Mauvaise réponse. La bonne réponse était : "${bonneRep.text}".`;
         document.getElementById('reponse').style.color = "red";
       }
-      document.getElementById('explication').textContent = q.reponses[idx].explication;
+      document.getElementById('explication').textContent = explication;
       document.getElementById('next-btn').style.display = "inline-block";
     }
 
     function questionSuivante() {
       currentQuestion++;
-      if (currentQuestion < questions.length) {
+      if (currentQuestion < questionsTirage.length) {
         afficherQuestion();
       } else {
         afficherScore();
@@ -124,11 +202,7 @@
       document.getElementById('quiz-section').style.display = 'none';
       document.getElementById('result-section').style.display = 'block';
       document.getElementById('score').innerHTML =
-        "Votre score : <strong>" + score + " / " + questions.length + "</strong>";
-    }
-
-    function restartQuiz() {
-      demarrerQuiz();
+        "Votre score&nbsp;: <strong>" + score + " / " + questionsTirage.length + "</strong>";
     }
   </script>
 </body>
