@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Médicaments - Accueil</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h2>Bienvenue sur le projet Quiz Médicaments</h2>
+  <p>Ce projet permet de tester vos connaissances sur les médicaments.</p>
+  <p>Appuyez sur le bouton ci-dessous pour démarrer le quiz.</p>
+
+  <a href="quiz_medocs/index.html">
+    <button>Démarrer le quiz</button>
+  </a>
+</body>
+</html>
