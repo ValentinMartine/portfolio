@@ -1,89 +1,294 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - [Valentin Martine]</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Portfolio - Valentin Martine</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur mon Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#formation">Formation</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Table des matières horizontale toujours visible -->
+  <nav class="toc-bar" aria-label="Table des matières">
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <section id="accueil">
+      <h1>Bienvenue sur mon portfolio</h1>
+      <p>Je suis Valentin, développeur web passionné. Découvrez mes <a href="#portfolio">projets</a>, mes <a href="#apropos">compétences</a> ou contactez-moi.</p>
+    </section>
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>Développeur web avec une appétence pour la santé, la recherche et l'innovation. Curieux, rigoureux et toujours prêt à relever de nouveaux défis !</p>
+    </section>
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Quelques réalisations et projets marquants :</p>
+      <ul>
+        <li>
+          Quiz Médicaments
+          <a href="#quiz" class="btn-link">Accéder au projet</a>
+        </li>
+        <!-- Ajoute d'autres projets ici -->
+      </ul>
+    </section>
+    <section id="formation">
+      <h2>Formation</h2>
+      <ul>
+        <li>
+          Master Informatique pour la Santé, Université de Paris Cité (2023-2025)
+        </li>
+        <li>
+          Licence Informatique, Université de Paris Cité (2020-2023)
+        </li>
+      </ul>
+    </section>
+    <section id="experience">
+      <h2>Expérience</h2>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'équipe Modélisation multi-échelles et spatio-temporelles en cancérologie</div>
+        <div class="lieu-date">- Centre de Recherche des Cordeliers (mars 2025-juin 2025)</div>
+      </div>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'Institut de recherche pour la valorisation des données de santé</div>
+        <div class="lieu-date">- Laboratoire d'Informatique Médicale et d'Ingénierie des Connaissances en e-Santé (mai 2023-juin 2023)</div>
+      </div>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'Institut de Neuropsychologie, Neurovision, Neurocognition</div>
+        <div class="lieu-date">- Hôpital Fondation Adolphe de Rothschild (juillet 2022-août 2022)</div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Mail : <a href="mailto:valentin.martine@example.com">valentin.martine@example.com</a></p>
+      <p>LinkedIn : <a href="https://www.linkedin.com/in/valentinmartine" target="_blank">valentinmartine</a></p>
+      <p>GitHub : <a href="https://github.com/ValentinMartine" target="_blank">ValentinMartine</a></p>
+    </section>
+    <section id="quiz">
+      <h2>Quiz Médicaments</h2>
+      <div id="start-section">
+        <button onclick="demarrerQuiz()">Commencer le quiz</button>
+      </div>
+      <div id="quiz-section" style="display:none;">
+        <h3 id="question"></h3>
+        <ul id="reponses"></ul>
+        <div id="reponse"></div>
+        <div class="explication" id="explication"></div>
+        <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+        <!-- Le bouton fin-btn sera ajouté dynamiquement -->
+      </div>
+      <div id="result-section" style="display:none;">
+        <div id="score"></div>
+        <button onclick="demarrerQuiz()">Recommencer le quiz</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    const questions = [
+      {
+        question: "Quel est le principe actif du Doliprane ?",
+        reponses: [
+          { text: "Ibuprofène", correct: false },
+          { text: "Paracétamol", correct: true },
+          { text: "Aspirine", correct: false }
+        ],
+        explication: "Le principe actif du Doliprane est le paracétamol, utilisé comme antalgique et antipyrétique."
+      },
+      {
+        question: "L'aspirine appartient à la classe des :",
+        reponses: [
+          { text: "Antibiotiques", correct: false },
+          { text: "Anti-inflammatoires non stéroïdiens (AINS)", correct: true },
+          { text: "Antiviraux", correct: false }
+        ],
+        explication: "L'aspirine est un AINS, c'est-à-dire un anti-inflammatoire non stéroïdien."
+      },
+      {
+        question: "Le paracétamol est principalement utilisé pour :",
+        reponses: [
+          { text: "Réduire la fièvre et soulager la douleur", correct: true },
+          { text: "Soigner une infection bactérienne", correct: false },
+          { text: "Traiter les allergies", correct: false }
+        ],
+        explication: "Le paracétamol sert à réduire la fièvre et soulager la douleur."
+      },
+      {
+        question: "Quel médicament est le plus adapté pour une inflammation ?",
+        reponses: [
+          { text: "Paracétamol", correct: false },
+          { text: "Ibuprofène", correct: true },
+          { text: "Paracétamol codéiné", correct: false }
+        ],
+        explication: "L'ibuprofène est un anti-inflammatoire, adapté pour traiter une inflammation."
+      },
+      {
+        question: "L'antidote du paracétamol en cas de surdosage est :",
+        reponses: [
+          { text: "N-acétylcystéine", correct: true },
+          { text: "Charbon actif", correct: false },
+          { text: "Naloxone", correct: false }
+        ],
+        explication: "La N-acétylcystéine est l'antidote spécifique en cas de surdosage au paracétamol."
+      },
+      {
+        question: "Quel médicament n’est PAS un antalgique ?",
+        reponses: [
+          { text: "Paracétamol", correct: false },
+          { text: "Ibuprofène", correct: false },
+          { text: "Amoxicilline", correct: true }
+        ],
+        explication: "L'amoxicilline est un antibiotique, pas un antalgique."
+      },
+      {
+        question: "Quel effet secondaire est le plus fréquent avec les AINS ?",
+        reponses: [
+          { text: "Nausées", correct: false },
+          { text: "Ulcères gastriques", correct: true },
+          { text: "Somnolence", correct: false }
+        ],
+        explication: "Les AINS, comme l'ibuprofène, peuvent provoquer des ulcères gastriques."
+      },
+      {
+        question: "On ne doit pas associer l’aspirine à :",
+        reponses: [
+          { text: "Du lait", correct: false },
+          { text: "Un autre AINS", correct: true },
+          { text: "Du paracétamol", correct: false }
+        ],
+        explication: "L'aspirine ne doit pas être associée à un autre AINS à cause du risque de saignements."
+      },
+      {
+        question: "Le paracétamol est à éviter chez :",
+        reponses: [
+          { text: "Les personnes allergiques au gluten", correct: false },
+          { text: "Les insuffisants hépatiques graves", correct: true },
+          { text: "Les diabétiques", correct: false }
+        ],
+        explication: "Le paracétamol est contre-indiqué chez les personnes souffrant d’insuffisance hépatique grave."
+      },
+      {
+        question: "Quel médicament est utilisé pour traiter une infection bactérienne ?",
+        reponses: [
+          { text: "Ibuprofène", correct: false },
+          { text: "Amoxicilline", correct: true },
+          { text: "Aspirine", correct: false }
+        ],
+        explication: "L’amoxicilline est un antibiotique efficace contre les infections bactériennes."
+      }
+    ];
 
-    <main>
-        <section id="accueil">
-            <h2>Accueil</h2>
-            <p>Étudiant en Master 1 Santé Publique parcours Informatique Biomédicale, je m'intéresse au domaine de la santé appliqué à l'informatique avec un intérêt plus précis pour l'intelligence artificielle. Ce site présente mon portfolio avec mon parcours académique, mes compétences, mes intérêts et mes objectifs professionnels.</p>
-        </section>
+    let questionsTirage = [];
+    let currentQuestion = 0;
+    let score = 0;
 
-        <section id="apropos">
-            <h2>À propos</h2>
-            <p>Je suis actuellement en Master 1 Santé Publique dans le parcours Informatique Biomédicale à l’Université Paris Cité, j'ai validé une Licence Sciences Biomédicales avec une spécialité en Neurosciences dans la même université et je suis diplômé d'un Baccalauréat Général Scientifique spécialité Mathématiques.</p>
-            <p> J'ai réalisé plusieurs stages lors de mon parcours universitaire, le premier à l'Hôpital Fondation Adolphe de Rothschild au sein de l'Institut de Neuropsychologie, Neuro-vision et Neuro-cognition, le deuxième au Laboratoire d'Informatique Médicale et d'Ingénierie des Connaissances en e-Santé au sein de l'Institut de recherche pour la valorisation des données de santé et le troisième, actuellement au Centre de Recherche des Cordeliers au sein de l'équipe Modélisation multi-échelles et spatio-temporelles en cancérologie.</p>
-        </section>
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
-        <section id="portfolio">
-            <h2>Mes projets</h2>
-            <article>
-                <h3>Quiz sur les Médicaments</h3>
-                <p>Application interactive permettant de tester ses connaissances avec des questions aléatoires, un système de score, et des explications pédagogiques.</p>
-                <a href="projets/projet_sante.html">Accéder au projet</a>
-            </article>
-        </section>
+    function demarrerQuiz() {
+      document.getElementById('start-section').style.display = 'flex';
+      document.getElementById('result-section').style.display = 'none';
+      document.getElementById('quiz-section').style.display = 'none';
+      score = 0;
+      currentQuestion = 0;
+      questionsTirage = questions.slice();
+      shuffle(questionsTirage);
+      questionsTirage = questionsTirage.slice(0, 3);
+      afficherQuestion();
+      document.getElementById('start-section').style.display = 'none';
+      const finBtn = document.getElementById('fin-btn');
+      if (finBtn) finBtn.style.display = "none";
+    }
 
-        <section id="formation">
-            <h2>Formation</h2>
-            <ul>
-                <li>Master 1 mention Santé Publique parcours Informatique Biomédicale – Université Paris Cité (2024-2025)</li>
-                <li>Licence Sciences Biomédicales – Université Paris Cité (2020-2024)</li>
-                <li>Première Année Commune aux Etudes de Santé – Université Paris Cité (2019-2020)</li>
-                <li>Baccalauréat Général Scientifique spécialité Mathématiques – Lycée Carnot (2016-2019)</li>
-            </ul>
-        </section>
+    function afficherQuestion() {
+      document.getElementById('quiz-section').style.display = 'flex';
+      const q = questionsTirage[currentQuestion];
+      document.getElementById('question').textContent = q.question;
+      const ul = document.getElementById('reponses');
+      ul.innerHTML = "";
+      q.reponses.forEach((rep, idx) => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.textContent = rep.text;
+        btn.onclick = () => repondre(idx);
+        btn.disabled = false;
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+      document.getElementById('reponse').textContent = "";
+      document.getElementById('reponse').style.color = "#222";
+      document.getElementById('explication').textContent = "";
+      document.getElementById('next-btn').style.display = "none";
+      const finBtn = document.getElementById('fin-btn');
+      if (finBtn) finBtn.style.display = "none";
+    }
 
-        <section id="experience">
-            <h2>Expérience professionnelle</h2>
-            <ul>
-                <li>Stagiaire au sein de l'équipe Modélisation multi-échelles et spatio-temporelles en cancérologie - Centre de Recherche des Cordeliers (mars 2025-juin 2025)</li>
-                <li>Stagiaire au sein de l'Institut de recherche pour la valorisation des données de santé - Laboratoire d'Informatique Médicale et d'Ingénierie des Connaissances en e-Santé (mai 2023-juin 2023)</li>
-                <li>Stagiaire au sein de l'Institut de Neuropsychologie, Neurovision, Neurocognition - Hôpital Fondation Adolphe de Rothschild (juillet 2022-août 2022)</li>
-            </ul>
-        </section>
+    function repondre(idx) {
+      const q = questionsTirage[currentQuestion];
+      // Désactive tous les boutons
+      Array.from(document.querySelectorAll('#reponses button')).forEach(btn => btn.disabled = true);
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <form action="mailto:ton.email@example.com" method="post" enctype="text/plain">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
+      const bonne = q.reponses[idx].correct;
+      const bonneRep = q.reponses.find(r => r.correct);
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
+      if (bonne) {
+        document.getElementById('reponse').textContent = `Bonne réponse. La bonne réponse est : "${q.reponses[idx].text}".`;
+        document.getElementById('reponse').style.color = "green";
+        score++;
+      } else {
+        document.getElementById('reponse').textContent = `Mauvaise réponse. La bonne réponse était : "${bonneRep.text}".`;
+        document.getElementById('reponse').style.color = "red";
+      }
+      document.getElementById('explication').textContent = q.explication;
 
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
+      // Changer le bouton selon la question
+      if (currentQuestion < questionsTirage.length - 1) {
+        document.getElementById('next-btn').style.display = "inline-block";
+        const finBtn = document.getElementById('fin-btn');
+        if (finBtn) finBtn.style.display = "none";
+      } else {
+        document.getElementById('next-btn').style.display = "none";
+        let finBtn = document.getElementById('fin-btn');
+        if (!finBtn) {
+          finBtn = document.createElement('button');
+          finBtn.id = 'fin-btn';
+          finBtn.textContent = 'Fin du quiz';
+          finBtn.onclick = afficherScore;
+          finBtn.style.display = "inline-block";
+          document.getElementById('quiz-section').appendChild(finBtn);
+        } else {
+          finBtn.style.display = "inline-block";
+        }
+      }
+    }
 
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-    </main>
+    function questionSuivante() {
+      currentQuestion++;
+      if (currentQuestion < questionsTirage.length) {
+        afficherQuestion();
+      } else {
+        afficherScore();
+      }
+    }
 
-    <footer>
-        <p>© [Valentin Martine] - 2025</p>
-        <p>
-            <a href="https://linkedin.com/in/ValentinMartine">LinkedIn</a> |
-            <a href="mailto:valentin.martine@etu.u-paris.fr">Email</a>
-        </p>
-    </footer>
+    function afficherScore() {
+      document.getElementById('quiz-section').style.display = 'none';
+      document.getElementById('result-section').style.display = 'flex';
+      document.getElementById('score').innerHTML =
+        "Votre score&nbsp;: <strong>" + score + " / " + questionsTirage.length + "</strong>";
+      // Masquer le bouton fin si présent
+      const finBtn = document.getElementById('fin-btn');
+      if (finBtn) finBtn.style.display = "none";
+    }
+  </script>
 </body>
 </html>
