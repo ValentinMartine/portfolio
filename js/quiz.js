@@ -1,4 +1,3 @@
-// Partie authentification (optionnelle)
 function showRegister() {
   document.getElementById('login-form').style.display = 'none';
   document.getElementById('register-form').style.display = 'block';
@@ -56,7 +55,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Partie quiz
 let questionsTirage = [];
 let currentQuestion = 0;
 let score = 0;
@@ -76,7 +74,7 @@ function demarrerQuiz() {
   currentQuestion = 0;
   questionsTirage = questions.slice();
   shuffle(questionsTirage);
-  questionsTirage = questionsTirage.slice(0, 3); // 3 questions aléatoires
+  questionsTirage = questionsTirage.slice(0, 3);
   afficherQuestion();
   document.getElementById('start-section').style.display = 'none';
   const finBtn = document.getElementById('fin-btn');
