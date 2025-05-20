@@ -2,25 +2,23 @@
 .toc-bar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100vw;
-  background: #0066cc; /* Bleu vif */
+  background: #22577a;
   z-index: 200;
-  height: 70px;
+  height: 64px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centre le contenu */
   box-shadow: 0 2px 10px #0002;
 }
 .toc-bar ul {
   list-style: none;
   margin: 0;
-  padding: 0 40px;
+  padding: 0 30px;
   display: flex;
-  gap: 48px;
+  gap: 38px;
   width: 100%;
-  justify-content: center; /* Centre les liens */
+  justify-content: center;
 }
 .toc-bar li {
   display: flex;
@@ -28,27 +26,26 @@
 .toc-bar a {
   color: #fff;
   font-weight: bold;
-  font-size: 1.7em;
+  font-size: 1.15em; /* légèrement réduite */
   text-decoration: none;
-  padding: 16px 26px;
+  padding: 10px 16px;
   border-radius: 6px;
   transition: background 0.18s, color 0.18s;
   letter-spacing: 0.5px;
   position: relative;
-  background: #007bff;
 }
 .toc-bar a:hover, .toc-bar a:focus {
-  background: #0056b3;
+  background: #183654;
   color: #fff;
 }
 
 /* Pour éviter que le contenu soit caché sous la barre */
 .main-container {
-  margin-top: 90px;
-  max-width: 1500px; /* Plus large */
+  margin-top: 80px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 60px;  /* Marges larges */
+  padding: 0 40px;
 }
 
 /* ---- GROS TITRES ET POLICE ---- */
@@ -57,25 +54,25 @@ body {
   color: #222;
   font-family: 'Inter', 'Roboto', Arial, sans-serif;
   margin: 0;
-  font-size: 1.5em; /* Plus grand ! */
+  font-size: 1.07em; /* police globale réduite */
 }
 h1, h2, h3 {
   font-family: 'Montserrat', 'Inter', Arial, sans-serif;
   color: #22577a;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   margin-top: 0;
 }
 h1 {
-  font-size: 3.2em;
+  font-size: 2.2em;
   text-align: center;
   letter-spacing: -1px;
 }
 h2 {
-  font-size: 2.4em;
-  margin-top: 36px;
+  font-size: 1.45em;
+  margin-top: 28px;
 }
 h3 {
-  font-size: 1.7em;
+  font-size: 1.1em;
 }
 
 /* ---- SECTIONS ---- */
@@ -83,34 +80,37 @@ section {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 2px 16px #0001;
-  padding: 54px 48px 44px 48px;
-  margin: 60px 0;
+  padding: 44px 38px 38px 38px;
+  margin: 56px 0;
   border: 1px solid #e3e6ea;
   position: relative;
 }
 section + section {
-  margin-top: 86px;
+  margin-top: 72px;
 }
 
-/* ---- EXPÉRIENCE ---- */
-.experience {
-  margin-bottom: 40px;
+/* ---- EXPÉRIENCE & FORMATION ---- */
+.experience,
+.formation {
+  margin-bottom: 32px;
 }
-.experience .poste {
+.experience .poste,
+.formation .poste {
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.08em;
 }
-.experience .lieu-date {
-  margin-left: 16px;
+.experience .lieu-date,
+.formation .lieu-date {
+  margin-left: 12px;
   color: #555;
-  font-size: 1.05em;
-  margin-bottom: 22px;
+  font-size: 1em;
+  margin-bottom: 18px;
 }
 
 /* ---- PARAGRAPHES & LISTES ---- */
 p, li {
-  font-size: 1.25em;
-  margin-bottom: 22px;
+  font-size: 1em;
+  margin-bottom: 16px;
   line-height: 1.7;
 }
 
@@ -134,19 +134,19 @@ a:hover, a:focus {
   background: #22577a;
   color: #fff !important;
   border-radius: 8px;
-  padding: 18px 42px;
+  padding: 14px 36px;
   text-decoration: none;
   font-weight: 500;
-  margin: 32px 12px 0 0;
+  margin: 22px 12px 0 0;
   transition: background 0.2s, transform 0.1s;
   border: none;
-  font-size: 1.25em;
+  font-size: 1.05em;
 }
 .btn-link:hover, .btn-link:focus {
   background: #183654;
   color: #fff;
   text-decoration: none;
-  transform: translateY(-2px) scale(1.04);
+  transform: translateY(-2px) scale(1.03);
 }
 
 /* ---- QUIZ SPÉCIFIQUE ---- */
@@ -160,11 +160,11 @@ a:hover, a:focus {
   background: transparent;
 }
 #start-section button {
-  margin-top: 70px;
-  margin-bottom: 50px;
-  font-size: 2.3em;
-  padding: 34px 90px;
-  border-radius: 18px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 1.1em;
+  padding: 18px 45px;
+  border-radius: 16px;
   background: #22577a;
   color: #fff;
   border: none;
@@ -174,29 +174,29 @@ a:hover, a:focus {
 }
 #start-section button:hover {
   background: #183654;
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 #quiz-section h3#question {
-  font-size: 2.5em;
+  font-size: 1.25em;
   font-weight: bold;
-  margin: 48px 0 60px 0;
+  margin: 40px 0 50px 0;
   text-align: center;
-  max-width: 92vw;
+  max-width: 90vw;
 }
 #reponses {
   list-style: none;
   padding: 0;
-  margin: 0 0 48px 0;
+  margin: 0 0 40px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
 }
 #reponses button {
-  font-size: 1.35em;
-  padding: 30px 54px;
-  min-width: 360px;
+  font-size: 1em;
+  padding: 16px 32px;
+  min-width: 220px;
   border: none;
   border-radius: 12px;
   background: #22577a;
@@ -208,26 +208,26 @@ a:hover, a:focus {
 }
 #reponses button:hover:enabled {
   background: #183654;
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 #reponse, .explication, #next-btn, #fin-btn {
   text-align: center;
   align-self: center;
 }
 #reponse {
-  margin-top: 36px;
-  font-size: 1.2em;
+  margin-top: 30px;
+  font-size: 1.08em;
 }
 .explication {
-  margin-top: 26px;
-  font-size: 1.12em;
-  max-width: 900px;
+  margin-top: 20px;
+  font-size: 1em;
+  max-width: 750px;
   text-align: center;
 }
 #next-btn, #fin-btn {
-  margin-top: 44px;
-  font-size: 1.15em;
-  padding: 18px 46px;
+  margin-top: 40px;
+  font-size: 1.03em;
+  padding: 16px 40px;
   border-radius: 10px;
   background: #22577a;
   color: #fff;
@@ -240,17 +240,17 @@ a:hover, a:focus {
 }
 #next-btn:hover:enabled, #fin-btn:hover:enabled {
   background: #183654;
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 #score {
-  font-size: 2em;
-  margin-top: 38px;
+  font-size: 1.5em;
+  margin-top: 30px;
   text-align: center;
 }
 #result-section button {
-  margin-top: 58px;
-  font-size: 1.12em;
-  padding: 20px 54px;
+  margin-top: 44px;
+  font-size: 1em;
+  padding: 16px 44px;
   border-radius: 10px;
   background: #22577a;
   color: #fff;
@@ -263,22 +263,22 @@ a:hover, a:focus {
 }
 #result-section button:hover {
   background: #183654;
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
   .main-container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .toc-bar ul {
-    gap: 18px;
-    padding: 0 10px;
+    gap: 10px;
+    padding: 0 6px;
   }
   .toc-bar a {
-    font-size: 1.2em;
-    padding: 10px 10px;
+    font-size: 0.96em;
+    padding: 8px 7px;
   }
 }
 @media (max-width: 600px) {
@@ -288,17 +288,17 @@ a:hover, a:focus {
     border-radius: 8px;
   }
   h1 {
-    font-size: 1.7em;
+    font-size: 1.1em;
   }
   h2 {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .toc-bar {
     height: 52px;
-    font-size: 1em;
+    font-size: 0.93em;
   }
   .main-container {
     margin-top: 62px;
-    padding: 0 6px;
+    padding: 0 4px;
   }
 }
