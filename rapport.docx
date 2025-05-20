@@ -49,18 +49,7 @@ Toutes les sections sont aérées, le texte est lisible et l’ensemble cohéren
 
 ### 4.3 JavaScript : Interactivité
 #### 4.3.1 Navigation fluide
-Le fichier 'js/script.js' permet un scroll fluide lors du clic sur les liens du menu :
-'''js
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
-    });
-  });
-});
-'''
-Ceci est une notion vue en cours : la manipulation du DOM et l’ajout d’évènements.
+Le fichier 'js/script.js' permet un scroll fluide lors du clic sur les liens du menu.
 
 #### 4.3.2 Quiz interactif et authentification
 Le projet principal présenté dans la partie Portfolio est un quiz sur les médicaments accessible seulement après authentification :
