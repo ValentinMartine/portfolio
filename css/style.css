@@ -1,301 +1,153 @@
-/* ---- TABLE DES MATIÈRES HORIZONTALE FIXE ---- */
+/* Barre de navigation horizontale */
 .toc-bar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  background: #22577a;
-  z-index: 200;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 10px #0002;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .toc-bar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 30px;
   display: flex;
-  gap: 38px;
-  width: 100%;
-  justify-content: center;
+  margin: 0;
+  padding: 0 1em;
+  list-style: none;
+  height: 60px;
+  align-items: center;
+  overflow-x: auto;
 }
 .toc-bar li {
-  display: flex;
+  margin-right: 2em;
+}
+.toc-bar li:last-child {
+  margin-right: 0;
 }
 .toc-bar a {
   color: #fff;
-  font-weight: bold;
-  font-size: 1.25em;
   text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  transition: background 0.18s, color 0.18s;
-  letter-spacing: 0.5px;
-  position: relative;
+  font-weight: bold;
+  padding: 0.5em 0.7em;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 4px;
 }
-.toc-bar a:hover, .toc-bar a:focus {
-  background: #183654;
-  color: #fff;
+.toc-bar a:hover,
+.toc-bar a:focus {
+  background: #fff;
+  color: #222;
 }
 
-/* Pour éviter que le contenu soit caché sous la barre */
 .main-container {
-  margin-top: 80px;
-  max-width: 1200px;
+  margin-top: 70px;
+  padding: 2em 1em 3em 1em;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 40px;
 }
 
-/* ---- GROS TITRES ET POLICE ---- */
-body {
-  background: #f7f7f7;
-  color: #222;
-  font-family: 'Inter', 'Roboto', Arial, sans-serif;
-  margin: 0;
-  font-size: 1.25em;
-}
-h1, h2, h3 {
-  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
-  color: #22577a;
-  margin-bottom: 24px;
-  margin-top: 0;
-}
-h1 {
-  font-size: 2.8em;
-  text-align: center;
-  letter-spacing: -1px;
-}
-h2 {
-  font-size: 2em;
-  margin-top: 28px;
-}
-h3 {
-  font-size: 1.4em;
-}
-
-/* ---- SECTIONS ---- */
 section {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px #0001;
-  padding: 44px 38px 38px 38px;
-  margin: 56px 0;
-  border: 1px solid #e3e6ea;
-  position: relative;
-}
-section + section {
-  margin-top: 72px;
+  margin-bottom: 2.5em;
 }
 
-/* ---- EXPÉRIENCE ---- */
-.experience {
-  margin-bottom: 32px;
-}
-.experience .poste {
-  font-weight: bold;
-  font-size: 1.08em;
-}
-.experience .lieu-date {
-  margin-left: 12px;
-  color: #555;
-  font-size: 1em;
-  margin-bottom: 18px;
+h1, h2, h3 {
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* ---- PARAGRAPHES & LISTES ---- */
-p, li {
-  font-size: 1.13em;
-  margin-bottom: 16px;
-  line-height: 1.7;
-}
-
-/* ---- LIENS ---- */
-a {
-  color: #22577a;
-  text-decoration: none;
-  font-weight: 500;
-  background: none;
-  border-radius: 4px;
-  padding: 1px 2px;
-  transition: color 0.18s, background 0.18s;
-}
-a:hover, a:focus {
-  color: #183654;
-  background: #e3e6ea;
-  text-decoration: underline;
-}
-.btn-link {
-  display: inline-block;
-  background: #22577a;
-  color: #fff !important;
-  border-radius: 8px;
-  padding: 14px 36px;
-  text-decoration: none;
-  font-weight: 500;
-  margin: 22px 12px 0 0;
-  transition: background 0.2s, transform 0.1s;
-  border: none;
-  font-size: 1.05em;
-}
-.btn-link:hover, .btn-link:focus {
-  background: #183654;
-  color: #fff;
-  text-decoration: none;
-  transform: translateY(-2px) scale(1.03);
-}
-
-/* ---- QUIZ SPÉCIFIQUE ---- */
 #quiz-section, #result-section, #start-section {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  width: 100%;
-  background: transparent;
+  align-items: flex-start;
+  max-width: 600px;
 }
-#start-section button {
-  margin-top: 60px;
-  margin-bottom: 40px;
-  font-size: 2em;
-  padding: 30px 70px;
-  border-radius: 16px;
-  background: #22577a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: block;
+
+#quiz-section {
+  display: flex;
+  margin-bottom: 2em;
 }
-#start-section button:hover {
-  background: #183654;
-  transform: scale(1.06);
-}
-#quiz-section h3#question {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 40px 0 50px 0;
-  text-align: center;
-  max-width: 90vw;
-}
+
 #reponses {
   list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
+  padding-left: 0;
+  margin-bottom: 1em;
+}
+#reponses li {
+  margin-bottom: 0.5em;
 }
 #reponses button {
-  font-size: 1.18em;
-  padding: 22px 44px;
-  min-width: 320px;
-  border: none;
-  border-radius: 12px;
-  background: #22577a;
-  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: 1px solid #222;
+  background: #f7f7f7;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 4px 24px #22577a22;
-  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1em;
+}
+#reponses button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 #reponses button:hover:enabled {
-  background: #183654;
-  transform: scale(1.04);
-}
-#reponse, .explication, #next-btn, #fin-btn {
-  text-align: center;
-  align-self: center;
-}
-#reponse {
-  margin-top: 30px;
-  font-size: 1.08em;
-}
-.explication {
-  margin-top: 20px;
-  font-size: 1em;
-  max-width: 750px;
-  text-align: center;
-}
-#next-btn, #fin-btn {
-  margin-top: 40px;
-  font-size: 1.03em;
-  padding: 16px 40px;
-  border-radius: 10px;
-  background: #22577a;
+  background: #222;
   color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: block;
-  text-align: center;
-  align-self: center;
-}
-#next-btn:hover:enabled, #fin-btn:hover:enabled {
-  background: #183654;
-  transform: scale(1.04);
-}
-#score {
-  font-size: 1.8em;
-  margin-top: 30px;
-  text-align: center;
-}
-#result-section button {
-  margin-top: 44px;
-  font-size: 1em;
-  padding: 16px 44px;
-  border-radius: 10px;
-  background: #22577a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: block;
-  text-align: center;
-  align-self: center;
-}
-#result-section button:hover {
-  background: #183654;
-  transform: scale(1.04);
 }
 
-/* ---- RESPONSIVE ---- */
-@media (max-width: 900px) {
+#next-btn,
+#fin-btn,
+#start-section button,
+#result-section button {
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+#next-btn:hover,
+#fin-btn:hover,
+#start-section button:hover,
+#result-section button:hover {
+  background: #444;
+}
+
+.explication {
+  margin: 1em 0 0.5em 0;
+  font-style: italic;
+  color: #555;
+}
+
+#score {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+/* Expérience et Formation : style identique */
+.experience,
+.formation {
+  margin-bottom: 1.3em;
+}
+
+.poste {
+  font-weight: bold;
+}
+
+.lieu-date {
+  font-weight: normal;
+  margin-left: 0.4em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   .main-container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 1em 0.3em 2em 0.3em;
   }
   .toc-bar ul {
-    gap: 10px;
-    padding: 0 6px;
+    flex-wrap: wrap;
+    height: auto;
   }
-  .toc-bar a {
-    font-size: 1.03em;
-    padding: 8px 7px;
-  }
-}
-@media (max-width: 600px) {
   section {
-    padding: 12px 0;
-    margin: 22px 0;
-    border-radius: 8px;
-  }
-  h1 {
-    font-size: 1.4em;
-  }
-  h2 {
-    font-size: 1.1em;
-  }
-  .toc-bar {
-    height: 52px;
-    font-size: 0.93em;
-  }
-  .main-container {
-    margin-top: 62px;
-    padding: 0 4px;
+    margin-bottom: 2em;
   }
 }
