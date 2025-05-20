@@ -9,15 +9,10 @@ Sujet : Réalisation d’un portfolio web personnel avec intégration d’un pro
 
 1. Objectif du projet
 L’objectif était de créer un portfolio web personnel permettant de présenter mon parcours académique, mes expériences professionnelles, mes compétences et un projet interactif. Il devait être conçu en HTML/CSS/JS en respectant les bonnes pratiques vues en cours.
-
 Le projet inclut un quiz interactif sur les médicaments pour illustrer mes compétences en développement d’interfaces dynamiques.
 
 2. Maquette et arborescence du site
 La maquette du site repose sur une navigation unique, avec des sections verticales accessibles via une barre fixe :
-
-pgsql
-Copier
-Modifier
 portfolio/
 ├── index.html
 ├── css/
@@ -35,90 +30,59 @@ portfolio/
 ├── images/
 │   └── profil.jpg
 ├── README.md
+
 3. Technologies utilisées (cours appliqués)
 HTML
 Structure de la page avec <head>, <body>, <section>, <nav>
-
 Titres (<h1> à <h3>), paragraphes, listes, liens et images
-
 Ancrage et navigation fluide par id et href
-
 Respect de l’imbrication, des commentaires, et de la sémantique
 
 CSS
 Fichier CSS externe (style.css)
-
 Sélecteurs, classes, ID, positionnement, couleurs, marges
-
 Responsive design avec @media queries
-
 Fichier style2.css dédié au quiz pour modularité
 
 JavaScript
 Manipulation du DOM (getElementById, querySelector)
-
 Événements (onclick, onsubmit)
-
 Conditions, fonctions, tableaux, boucles
-
 Intégration dynamique des questions, gestion du score
-
 Scroll fluide dans script.js (notion nouvelle, justifiée)
 
 4. Le projet "Quiz sur les Médicaments"
 Accessible depuis la section Portfolio, ce projet propose :
-
 3 questions tirées au hasard parmi 10
-
 Affichage des réponses et explication immédiate
-
 Score final
-
 Bouton "Recommencer le quiz"
-
 Le tout est géré par 4 fichiers :
-
 index2.html → structure du quiz
-
 questions.js → base des questions
-
 quiz.js → logique dynamique
-
 style2.css → style propre au quiz
 
 5. Déploiement du site
 Le site a été publié avec GitHub Pages :
-
 Dépôt : https://github.com/ValentinMartine/portfolio
-
 Pages activées sur la branche main, dossier racine
-
 Lien de publication :
-🔗 https://valentinmartine.github.io/portfolio
+https://valentinmartine.github.io/portfolio
 
 6. Difficultés rencontrées
 Séparer le style général du portfolio et celui du quiz
-
 Structurer correctement les fonctions JavaScript (modularité)
-
 Gérer l’adaptation responsive sans altérer la lisibilité
-
 Comprendre les limites de alert() vs affichage DOM
 
 7. Conclusion et perspectives
 Ce projet m’a permis de :
-
 Appliquer concrètement les notions de HTML, CSS et JS
-
 Créer une page web responsive et fonctionnelle
-
 Concevoir une interaction utilisateur fluide et pédagogique
-
 Publier un site complet avec hébergement gratuit
-
 Évolutions possibles :
 Ajout de sessions utilisateurs (connexion)
-
 Extension du quiz à d'autres thématiques
-
 Stockage des scores avec localStorage ou en ligne
