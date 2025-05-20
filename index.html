@@ -43,51 +43,41 @@
       <h2>Portfolio</h2>
       <p>Mes projets :</p>
       <ul>
-        <!-- Projet 1 : Stage 2025 -->
         <li>
           <div class="projet">
-            <h3>Normalisation de termes anatomiques par intelligence artificielle (Stage 2025)</h3>
+            <h3>Normalisation de termes identifiant des entités anatomiques à l'aide de plongements syntaxiques issus de grands modèles de langues : application aux localisations tumorales. (Stage 2025)</h3>
             <p><strong>Description :</strong>
-              Normalisation de termes identifiant des entités anatomiques à l'aide de plongements syntaxiques issus de grands modèles de langues : application aux localisations tumorales.<br>
               Évaluation de l'intérêt des plongements syntaxiques pour la normalisation d'entités anatomiques dans les textes médicaux.
             </p>
-            <p><strong>Technologies :</strong> Python, R</p>
+            <p><strong>Outils :</strong> Python, R</p>
             <p><strong>Travaux réalisés :</strong> Développement, analyse de données, restitution de résultats.</p>
-            <!-- <img src="images/stage2025.jpg" alt="Capture du projet 2025" style="max-width:350px;"> -->
           </div>
         </li>
-        <!-- Projet 2 : Stage 2023 -->
         <li>
           <div class="projet">
-            <h3>Intelligence artificielle en épidémiologie (Stage 2023)</h3>
+            <h3>Approches méthodologiques de type intelligence artificielle en épidémiologie appliquées aux suivis des maladies transmissibles. (Stage 2023)</h3>
             <p><strong>Description :</strong>
-              Approches méthodologiques de type intelligence artificielle en épidémiologie appliquées aux suivis des maladies transmissibles.<br>
               Développement de modules ou services intégrables sur une plateforme technologique d’observatoire épidémiologique.
             </p>
-            <p><strong>Technologies :</strong> Python, IA, analyse de données</p>
+            <p><strong>Outils :</strong> Python, IA, analyse de données</p>
             <p><strong>Travaux réalisés :</strong> Études, développements, analyses et synthèses de données de santé complexes et non structurées.</p>
-            <!-- <img src="images/stage2023.jpg" alt="Capture du projet 2023" style="max-width:350px;"> -->
           </div>
         </li>
-        <!-- Projet 3 : Stage 2022 -->
         <li>
           <div class="projet">
-            <h3>Évaluation des troubles neurovisuels chez l’enfant HPI (Stage 2022)</h3>
+            <h3>Etude de la validité des cotations des troubles neurovisuels chez les enfants à haut potentiel intellectuel. (Stage 2022)</h3>
             <p><strong>Description :</strong>
-              Étude de la validité des cotations des troubles neurovisuels chez les enfants à haut potentiel intellectuel.<br>
               Participation aux bilans neuropsychologiques, screening de patients et analyses statistiques.
             </p>
             <p><strong>Technologies :</strong> Statistiques, bureautique</p>
             <p><strong>Travaux réalisés :</strong> Récolte et traitement de données, analyses statistiques, adaptation au milieu clinique, méthodologie scientifique.</p>
-            <!-- <img src="images/stage2022.jpg" alt="Capture du projet 2022" style="max-width:350px;"> -->
           </div>
         </li>
-        <!-- Quiz sur les médicaments -->
+
         <li>
           <section id="quiz">
             <h3>Quiz sur les médicaments</h3>
 
-            <!-- Connexion / Inscription -->
             <div id="auth-section">
               <h4>Connexion</h4>
               <form id="login-form" onsubmit="return login(event)">
@@ -105,13 +95,11 @@
               </form>
             </div>
 
-            <!-- Message de bienvenue et bouton de déconnexion -->
             <div id="welcome-section" style="display:none;">
               <p id="welcome-msg"></p>
               <button onclick="logout()">Se déconnecter</button>
             </div>
 
-            <!-- Quiz (accessible uniquement si connecté) -->
             <div id="quiz-content" style="display:none;">
               <div id="start-section">
                 <button onclick="demarrerQuiz()">Commencer le quiz</button>
@@ -174,7 +162,7 @@
     </section>
   </div>
   <script>
-    // Auth/Inscription gestion simple (localStorage)
+
     function showRegister() {
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('register-form').style.display = 'block';
@@ -232,7 +220,6 @@
       }
     });
 
-    // Quiz JS inchangé (peut être optimisé plus tard)
     const questions = [
       {
         question: "Quel est le principe actif du Doliprane ?",
@@ -393,7 +380,6 @@
       }
       document.getElementById('explication').textContent = q.explication;
 
-      // Changer le bouton selon la question
       if (currentQuestion < questionsTirage.length - 1) {
         document.getElementById('next-btn').style.display = "inline-block";
         const finBtn = document.getElementById('fin-btn');
