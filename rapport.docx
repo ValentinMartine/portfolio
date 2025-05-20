@@ -1,0 +1,110 @@
+# Rapport de Projet : Création d’un Portfolio personnel
+
+## 0. Lien du site hébergé
+'https://valentinmartine.github.io/portfolio/'
+  
+## 1. Introduction
+Ce document présente toutes les étapes de conception, de développement et de mise en ligne de mon portfolio personnel réalisé dans le cadre du projet de Technologies du Web. L’objectif est de fournir une vitrine professionnelle regroupant mon parcours, mes compétences, mes projets, mes expériences et mes objectifs professionnels, tout en respectant une démarche structurée.
+
+## 2. Objectif du projet
+Le but du projet est de concevoir et de développer un portfolio personnel moderne et responsive. Un portfolio est un outil clé pour tout professionnel souhaitant mettre en valeur ses projets, son parcours académique et professionnel auprès de futurs employeurs ou collaborateurs. Mon portfolio inclut également un projet lié à la santé, accessible via authentification.
+
+## 3. Maquette et structure du site
+### 3.1 Réflexion initiale et maquettage
+
+Avant d’écrire la moindre ligne de code, j’ai dessiné une maquette sur papier pour organiser les différentes sections du site :
+- Accueil
+- À propos
+- Portfolio
+- Formation
+- Expérience
+- Contact
+Le menu de navigation horizontal fixe permet d’accéder rapidement à chaque section sans remonter en haut de la page.
+
+### 3.2 Organisation des dossiers
+J’ai respecté une structure de dossiers claire et hiérarchisée pour améliorer le rendu :
+portfolio/
+│
+├── rapport.docx
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+    ├── script.js
+    ├── questions.js
+    └── quiz.js
+
+## 4. Développement du site
+### 4.1 HTML : La structure
+Le fichier principal 'index.html' contient toutes les sections attendues. Les balises sémantiques ('<nav>', '<section>', '<ul>', etc.) ont été utilisées pour renforcer la clarté du site.  
+Les ancres du menu permettent une navigation fluide entre les sections partout sur la page web.
+
+### 4.2 CSS : Le style et la responsivité
+Le fichier 'css/style.css' gère l’esthétique du site. J’ai utilisé principalement :
+- Flexbox pour les alignements horizontaux et verticaux (menu, quiz, etc.)
+- Des couleurs sobres
+- Des effets de survol et transitions pour l’interactivité
+- Des media queries pour l’adaptation sur smartphone et tablette (responsive design)
+Toutes les sections sont aérées, le texte est lisible et l’ensemble cohérent sur tous les supports.
+
+### 4.3 JavaScript : Interactivité
+#### 4.3.1 Navigation fluide
+Le fichier 'js/script.js' permet un scroll fluide lors du clic sur les liens du menu :
+'''js
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+  });
+});
+'''
+Ceci est une notion vue en cours : la manipulation du DOM et l’ajout d’évènements.
+
+#### 4.3.2 Quiz interactif et authentification
+Le projet principal présenté dans la partie Portfolio est un quiz sur les médicaments accessible seulement après authentification :
+- js/questions.js : contient la liste des questions, réponses et explications.
+- js/quiz.js : gère l’inscription, la connexion (localStorage), la logique du quiz, l’affichage des questions, la gestion du score et l’affichage des résultats.
+
+## 5. Explication des choix techniques
+- HTML/CSS/JS : pour rester simple et accessible, aucune bibliothèque externe n’a été utilisée.
+- Responsivité : gérée via CSS avec des media queries.
+- Séparation des fichiers : chaque fonctionnalité a son propre fichier, ce qui facilite la lisibilité et la reproductibilité.
+- Authentification locale : simplifiée pour la démonstration, sans base de données.
+
+## 6. Instructions d’installation et d’hébergement
+Le site peut être hébergé gratuitement sur [GitHub Pages](https://pages.github.com/) :
+Étapes :
+1. Placer tous les fichiers à la racine du dépôt GitHub, certains dans des dossiers.
+2. Aller dans les paramètres du dépôt, section "Pages".
+3. Choisir la branche 'main' et le dossier racine 'root' comme source.
+4. Valider : le site sera accessible à l’adresse 'https://valentinmartine.github.io/portfolio/'.
+
+## 7. Sections du site et fonctionnalités
+### 7.1 Accueil
+Présentation succincte de mon profil et de l’objectif du portfolio.
+                                                          
+### 7.2 À propos
+Présentation détaillée : parcours académique, compétences, intérêts, expériences et objectifs professionnels.
+                                                          
+### 7.3 Portfolio
+Liste des projets passés, avec au moins un projet détaillé (quiz sur les médicaments) accessible via création de compte ou connexion.
+
+### 7.4 Formation
+Liste des diplômes, établissements et années d’obtention.
+                                                          
+### 7.5 Expérience
+Liste des expériences, stages et postes occupés.
+
+### 7.6 Contact
+Liens directs vers Mail, LinkedIn et GitHub.
+
+## 8. Points d’amélioration possibles
+- Ajouter un sous-dossier 'images/' avec des captures d’écran de projets réalisés.
+- Ajouter un vrai formulaire de contact relié à un service d’envoi de mail.
+- Sécuriser l’authentification.
+
+## 9. Conclusion
+Ce projet m’a permis de mettre en pratique les notions de HTML, CSS et JavaScript vues en cours, ainsi que la gestion d’un projet complet avec une réflexion, un maquettage, le développement et la mise en ligne.  
+Le site est responsive et interactif.
