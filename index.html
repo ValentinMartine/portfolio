@@ -41,11 +41,28 @@
     </section>
     <section id="portfolio">
       <h2>Portfolio</h2>
-      <p>Mes projets :</p>
+      <p>Quelques réalisations et projets marquants :</p>
       <ul>
         <li>
-          Quiz sur les médicaments
-          <a href="#quiz" class="btn-link">Accéder au projet</a>
+          Quiz Médicaments
+          <!-- Le quiz s'affiche directement ici -->
+          <section id="quiz">
+            <h3>Quiz Médicaments</h3>
+            <div id="start-section">
+              <button onclick="demarrerQuiz()">Commencer le quiz</button>
+            </div>
+            <div id="quiz-section" style="display:none;">
+              <h3 id="question"></h3>
+              <ul id="reponses"></ul>
+              <div id="reponse"></div>
+              <div class="explication" id="explication"></div>
+              <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+            </div>
+            <div id="result-section" style="display:none;">
+              <div id="score"></div>
+              <button onclick="demarrerQuiz()">Recommencer le quiz</button>
+            </div>
+          </section>
         </li>
         <!-- Ajoute d'autres projets ici -->
       </ul>
