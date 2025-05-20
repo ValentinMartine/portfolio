@@ -89,6 +89,25 @@ section + section {
   margin-top: 72px;
 }
 
+/* ---- PROJET ---- */
+.projet {
+  background: #f9f9fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 24px 20px 17px 20px;
+  margin-bottom: 26px;
+}
+.projet h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #22577a;
+  font-size: 1.13em;
+}
+.projet p {
+  margin: 6px 0 7px 0;
+  font-size: 0.98em;
+}
+
 /* ---- EXPÉRIENCE & FORMATION ---- */
 .experience,
 .formation {
