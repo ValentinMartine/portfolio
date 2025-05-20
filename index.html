@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Valentin Martine</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="toc-bar" aria-label="Table des matières">
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <section id="accueil">
+      <h1>Bienvenue sur mon portfolio</h1>
+      <p>Etudiant en Master 1 mention Santé Publique parcours Informatique Biomédicale, je m'intéresse au domaine de la santé appliqué à l'informatique avec un intérêt particulier pour l'intelligence artificielle et le traitement des données médicales.</p>
+      <p>Découvrez mon parcours académique, mes compétences, mes intérêts et mes objectifs professionnels au sein de ce portfolio !</p>
+    </section>
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>Je suis actuellement en Master 1 mention Santé Publique parcours Informatique Biomédicale à l'Université Paris Cité, j'ai validé une Licence mention Sciences Biomédicales au sein de cette même université.</p>
+      <p>J'ai réalisé plusieurs stages au cours de mon parcours universitaire :</p>
+      <ul>
+        <li>
+          le premier au sein de l'Institut de recherche pour la valorisation des données de santé au Laboratoire d'Informatique Médicale et d'Ingénierie des Connaissances en e-Santé,
+        </li>
+        <li>
+          le deuxième au sein de l'Institut de Neuropsychologie, Neuro-vision et Neuro-cognition à l'Hôpital Fondation Adolphe de Rothschild,
+        </li>
+        <li>
+          le troisième, actuellement au sein de l'équipe Modélisations multi-échelles et spatio-temporelles en cancérologie au Centre de Recherche des Cordeliers.
+        </li>
+      </ul>
+    </section>
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Mes projets :</p>
+      <ul>
+        <li>
+          <div class="projet">
+            <h3>Normalisation de termes identifiant des entités anatomiques à l'aide de plongements syntaxiques issus de grands modèles de langues : application aux localisations tumorales. (Stage 2025)</h3>
+            <p><strong>Description :</strong>
+              Evaluation de l'intérêt des plongements syntaxiques issus des grands modèles de langues pour la normalisation d'entités anatomiques dans les textes médicaux.
+            </p>
+            <p><strong>Outils :</strong> Python, R</p>
+            <p><strong>Travaux réalisés :</strong> Développement en Python, analyse de données en Python et R, restitution de résultats.</p>
+          </div>
+        </li>
+        <li>
+          <div class="projet">
+            <h3>Approches méthodologiques de type intelligence artificielle en épidémiologie appliquées aux suivis des maladies transmissibles. (Stage 2023)</h3>
+            <p><strong>Description :</strong>
+              Comprendre les enjeux et l'état de l'art dans le domaine des observatoires épidémiologiques par le développement de modules ou services spécifiques intégrables sur l'une des plateformes existantes.
+            </p>
+            <p><strong>Outils :</strong> Python, R</p>
+            <p><strong>Travaux réalisés :</strong> Etudes, développements, analyses et synthèses de masses de données de santé complexes et non structurées. Développement d'outils d'analyses de données et de visualisation.</p>
+          </div>
+        </li>
+        <li>
+          <div class="projet">
+            <h3>Etude de la validité des cotations des troubles neurovisuels chez les enfants à haut potentiel intellectuel. (Stage 2022)</h3>
+            <p><strong>Description :</strong>
+              Familiarisation aux bilans neuropsychologiques et aux évaluations des troubles neurovisuels, screening de patients, récolte de données, analyses statistiques.
+            </p>
+            <p><strong>Outils :</strong> Excel</p>
+            <p><strong>Travaux réalisés :</strong> Adaptation au milieu professionnel d’un centre clinique, développement des qualités requises pour la recherche clinique et la méthodologie scientifique.</p>
+          </div>
+        </li>
+
+        <li>
+          <section id="quiz">
+            <h3>Quiz sur les médicaments</h3>
+
+            <div id="auth-section">
+              <h4>Connexion</h4>
+              <form id="login-form" onsubmit="return login(event)">
+                <input type="text" id="login-username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="login-password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+              </form>
+              <p>Pas de compte ? <a href="#" onclick="showRegister();return false;">Créer un compte</a></p>
+
+              <form id="register-form" style="display:none;" onsubmit="return register(event)">
+                <input type="text" id="register-username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="register-password" placeholder="Mot de passe" required>
+                <button type="submit">Créer un compte</button>
+                <button type="button" onclick="showLogin()">Retour</button>
+              </form>
+            </div>
+
+            <div id="welcome-section" style="display:none;">
+              <p id="welcome-msg"></p>
+              <button onclick="logout()">Se déconnecter</button>
+            </div>
+
+            <div id="quiz-content" style="display:none;">
+              <div id="start-section">
+                <button onclick="demarrerQuiz()">Commencer le quiz</button>
+              </div>
+              <div id="quiz-section" style="display:none;">
+                <h3 id="question"></h3>
+                <ul id="reponses"></ul>
+                <div id="reponse"></div>
+                <div class="explication" id="explication"></div>
+                <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+              </div>
+              <div id="result-section" style="display:none;">
+                <div id="score"></div>
+                <button onclick="demarrerQuiz()">Recommencer le quiz</button>
+              </div>
+            </div>
+          </section>
+        </li>
+      </ul>
+    </section>
+    <section id="formation">
+      <h2>Formation</h2>
+      <div class="formation">
+        <div class="poste">Master 1 mention Santé Publique parcours Informatique Biomédicale</div>
+        <div class="lieu-date">- Université Paris Cité (2024-2025)</div>
+      </div>
+      <div class="formation">
+        <div class="poste">Licence mention Sciences Biomédicales spécialité Neurosciences</div>
+        <div class="lieu-date">- Université Paris Cité (2020-2024)</div>
+      </div>
+      <div class="formation">
+        <div class="poste">Première Année Commune Aux Etudes de Santé</div>
+        <div class="lieu-date">- Université Paris Cité (2019-2020)</div>
+      </div>
+      <div class="formation">
+        <div class="poste">Baccalauréat Général Scientifique spécialité Mathématiques</div>
+        <div class="lieu-date">- Lycée Carnot (2016-2019)</div>
+      </div>
+    </section>
+    <section id="experience">
+      <h2>Expérience</h2>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'équipe Modélisation multi-échelles et spatio-temporelles en cancérologie</div>
+        <div class="lieu-date">- Centre de Recherche des Cordeliers (mars 2025-juin 2025)</div>
+      </div>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'Institut de recherche pour la valorisation des données de santé</div>
+        <div class="lieu-date">- Laboratoire d'Informatique Médicale et d'Ingénierie des Connaissances en e-Santé (mai 2023-juin 2023)</div>
+      </div>
+      <div class="experience">
+        <div class="poste">Stagiaire au sein de l'Institut de Neuropsychologie, Neurovision, Neurocognition</div>
+        <div class="lieu-date">- Hôpital Fondation Adolphe de Rothschild (juillet 2022-août 2022)</div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Mail : <a href="mailto:valentin.martine@etu.u-paris.fr">valentin.martine@etu.u-paris.fr</a></p>
+      <p>LinkedIn : <a href="https://www.linkedin.com/in/valentinmartine" target="_blank">linkedin.com/valentinmartine</a></p>
+      <p>GitHub : <a href="https://github.com/ValentinMartine" target="_blank">github.com/valentinmartine</a></p>
+    </section>
+  </div>
+    <script src="js/script.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
