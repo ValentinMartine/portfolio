@@ -63,7 +63,7 @@ Le projet principal présenté dans la partie Portfolio est un quiz sur les méd
 - Authentification locale : simplifiée pour la démonstration, sans base de données.
 
 ## 6. Instructions d’installation et d’hébergement
-Le site peut être hébergé gratuitement sur [GitHub Pages](https://pages.github.com/) :
+Le site peut être hébergé gratuitement sur GitHub Pages :
 Étapes :
 1. Placer tous les fichiers à la racine du dépôt GitHub, certains dans des dossiers.
 2. Aller dans les paramètres du dépôt, section "Pages".
