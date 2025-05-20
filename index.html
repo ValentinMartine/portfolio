@@ -37,6 +37,7 @@
         <li>
           le troisième, actuellement au sein de l'équipe Modélisations multi-échelles et spatio-temporelles en cancérologie au Centre de Recherche des Cordeliers.
         </li> 
+      </ul>
     </section>
     <section id="portfolio">
       <h2>Portfolio</h2>
@@ -45,19 +46,47 @@
         <li>
           <section id="quiz">
             <h3>Quiz sur les médicaments</h3>
-            <div id="start-section">
-              <button onclick="demarrerQuiz()">Commencer le quiz</button>
+
+            <!-- Connexion / Inscription -->
+            <div id="auth-section">
+              <h4>Connexion</h4>
+              <form id="login-form" onsubmit="return login(event)">
+                <input type="text" id="login-username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="login-password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+              </form>
+              <p>Pas de compte ? <a href="#" onclick="showRegister();return false;">Créer un compte</a></p>
+
+              <form id="register-form" style="display:none;" onsubmit="return register(event)">
+                <input type="text" id="register-username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="register-password" placeholder="Mot de passe" required>
+                <button type="submit">Créer un compte</button>
+                <button type="button" onclick="showLogin()">Retour</button>
+              </form>
             </div>
-            <div id="quiz-section" style="display:none;">
-              <h3 id="question"></h3>
-              <ul id="reponses"></ul>
-              <div id="reponse"></div>
-              <div class="explication" id="explication"></div>
-              <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+
+            <!-- Message de bienvenue et bouton de déconnexion -->
+            <div id="welcome-section" style="display:none;">
+              <p id="welcome-msg"></p>
+              <button onclick="logout()">Se déconnecter</button>
             </div>
-            <div id="result-section" style="display:none;">
-              <div id="score"></div>
-              <button onclick="demarrerQuiz()">Recommencer le quiz</button>
+
+            <!-- Quiz (accessible uniquement si connecté) -->
+            <div id="quiz-content" style="display:none;">
+              <div id="start-section">
+                <button onclick="demarrerQuiz()">Commencer le quiz</button>
+              </div>
+              <div id="quiz-section" style="display:none;">
+                <h3 id="question"></h3>
+                <ul id="reponses"></ul>
+                <div id="reponse"></div>
+                <div class="explication" id="explication"></div>
+                <button id="next-btn" onclick="questionSuivante()" style="display:none;">Question suivante</button>
+              </div>
+              <div id="result-section" style="display:none;">
+                <div id="score"></div>
+                <button onclick="demarrerQuiz()">Recommencer le quiz</button>
+              </div>
             </div>
           </section>
         </li>
@@ -106,6 +135,65 @@
     </section>
   </div>
   <script>
+    // Auth/Inscription gestion simple (localStorage)
+    function showRegister() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    }
+    function showLogin() {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('register-form').style.display = 'none';
+    }
+    function register(e) {
+      e.preventDefault();
+      const user = document.getElementById('register-username').value.trim();
+      const pass = document.getElementById('register-password').value;
+      if (!user || !pass) return false;
+      if (localStorage.getItem('quizuser_' + user)) {
+        alert('Ce nom d’utilisateur existe déjà.');
+        return false;
+      }
+      localStorage.setItem('quizuser_' + user, pass);
+      alert('Compte créé ! Connecte-toi.');
+      showLogin();
+      return false;
+    }
+    function login(e) {
+      e.preventDefault();
+      const user = document.getElementById('login-username').value.trim();
+      const pass = document.getElementById('login-password').value;
+      if (!user || !pass) return false;
+      const saved = localStorage.getItem('quizuser_' + user);
+      if (saved && saved === pass) {
+        localStorage.setItem('quiz_logged', user);
+        showWelcome();
+      } else {
+        alert('Identifiants incorrects');
+      }
+      return false;
+    }
+    function logout() {
+      localStorage.removeItem('quiz_logged');
+      document.getElementById('auth-section').style.display = '';
+      document.getElementById('welcome-section').style.display = 'none';
+      document.getElementById('quiz-content').style.display = 'none';
+    }
+    function showWelcome() {
+      const user = localStorage.getItem('quiz_logged');
+      if (user) {
+        document.getElementById('auth-section').style.display = 'none';
+        document.getElementById('welcome-section').style.display = '';
+        document.getElementById('welcome-msg').textContent = 'Bienvenue, ' + user + ' !';
+        document.getElementById('quiz-content').style.display = '';
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('quiz_logged')) {
+        showWelcome();
+      }
+    });
+
+    // Quiz JS inchangé (peut être optimisé plus tard)
     const questions = [
       {
         question: "Quel est le principe actif du Doliprane ?",
