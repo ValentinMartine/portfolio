@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Table des matières horizontale toujours visible -->
+
   <nav class="toc-bar" aria-label="Table des matières">
     <ul>
       <li><a href="#accueil">Accueil</a></li>
@@ -43,10 +43,8 @@
       <p>Mes projets :</p>
       <ul>
         <li>
-          Quiz sur les médicaments
-          <!-- Le quiz s'affiche directement ici -->
           <section id="quiz">
-            <h3>Quiz Médicaments</h3>
+            <h3>Quiz sur les médicaments</h3>
             <div id="start-section">
               <button onclick="demarrerQuiz()">Commencer le quiz</button>
             </div>
@@ -63,7 +61,7 @@
             </div>
           </section>
         </li>
-        <!-- Ajoute d'autres projets ici -->
+        <!-- Ajouter d'autres projets ici -->
       </ul>
     </section>
     <section id="formation">
@@ -252,7 +250,7 @@
 
     function repondre(idx) {
       const q = questionsTirage[currentQuestion];
-      // Désactive tous les boutons
+
       Array.from(document.querySelectorAll('#reponses button')).forEach(btn => btn.disabled = true);
 
       const bonne = q.reponses[idx].correct;
@@ -303,7 +301,7 @@
       document.getElementById('result-section').style.display = 'flex';
       document.getElementById('score').innerHTML =
         "Votre score&nbsp;: <strong>" + score + " / " + questionsTirage.length + "</strong>";
-      // Masquer le bouton fin si présent
+
       const finBtn = document.getElementById('fin-btn');
       if (finBtn) finBtn.style.display = "none";
     }
